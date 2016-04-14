@@ -28,6 +28,6 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'ruby' '2.2.0'
 gem 'puma'
+
+ruby "2.2.0"
