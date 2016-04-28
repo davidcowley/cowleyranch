@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bail_code.description %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @bail_code.abbreviation %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @bail_code.status %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @bail_code.weight %>
+</p>
+
+<%= link_to 'Edit', edit_bail_code_path(@bail_code) %> |
+<%= link_to 'Back', bail_codes_path %>

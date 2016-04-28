@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: BailType one
+  abbreviation: BT1
+  status: 1
+  weight: 100
+
+two:
+  description: BailType two
+  abbreviation: BT2
+  status: 1
+  weight: 120
