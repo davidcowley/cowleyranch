@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   get 'static_pages/about'
 
   resources :bail_codes
+  resources :cutting_codes
+  resources :field_types
+  resources :hay_types
+  resources :field_acres
+  resources :fields
 
 end

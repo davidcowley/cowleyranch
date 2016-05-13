@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422145358) do
+ActiveRecord::Schema.define(version: 20160513145345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "acres", id: false, force: :cascade do |t|
+    t.integer "field_id"
+    t.integer "field_acres_id"
+  end
+
+  add_index "acres", ["field_acres_id"], name: "index_acres_on_field_acres_id", using: :btree
+  add_index "acres", ["field_id"], name: "index_acres_on_field_id", using: :btree
 
   create_table "bail_codes", force: :cascade do |t|
     t.string   "description",  limit: 45
@@ -54,15 +62,12 @@ ActiveRecord::Schema.define(version: 20160422145358) do
   end
 
   create_table "fields", force: :cascade do |t|
-    t.string   "description",    limit: 45
-    t.string   "abbreviation",   limit: 10
+    t.string   "description",  limit: 45
+    t.string   "abbreviation", limit: 10
     t.integer  "status"
-    t.integer  "field_acres_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
-
-  add_index "fields", ["field_acres_id"], name: "index_fields_on_field_acres_id", using: :btree
 
   create_table "hay_types", force: :cascade do |t|
     t.string   "description",  limit: 45

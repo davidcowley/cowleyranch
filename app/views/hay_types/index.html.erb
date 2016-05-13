@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Hay Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Abbreviation</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hay_types.each do |hay_type| %>
+      <tr>
+        <td><%= hay_type.description %></td>
+        <td><%= hay_type.abbreviation %></td>
+        <td><%= hay_type.status %></td>
+        <td><%= link_to 'Show', hay_type %></td>
+        <td><%= link_to 'Edit', edit_hay_type_path(hay_type) %></td>
+        <td><%= link_to 'Destroy', hay_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hay type', new_hay_type_path %>
+<br>
+<br>
+<%= link_to 'Home', root_path %>

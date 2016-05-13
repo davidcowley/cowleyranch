@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Field Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Abbreviation</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @field_types.each do |field_type| %>
+      <tr>
+        <td><%= field_type.description %></td>
+        <td><%= field_type.abbreviation %></td>
+        <td><%= field_type.status %></td>
+        <td><%= link_to 'Show', field_type %></td>
+        <td><%= link_to 'Edit', edit_field_type_path(field_type) %></td>
+        <td><%= link_to 'Destroy', field_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Field type', new_field_type_path %>
+<br>
+<br>
+<%= link_to 'Home', root_path %>

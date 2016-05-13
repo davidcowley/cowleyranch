@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Field Acres</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Abbreviation</th>
+      <th>Status</th>
+      <th>Number of acres</th>
+      <th>Field type.description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @field_acres.each do |field_acre| %>
+      <tr>
+        <td><%= field_acre.description %></td>
+        <td><%= field_acre.abbreviation %></td>
+        <td><%= field_acre.status %></td>
+        <td><%= field_acre.number_of_acres %></td>
+        <td><%= field_acre.field_type.description %></td>
+        <td><%= link_to 'Show', field_acre %></td>
+        <td><%= link_to 'Edit', edit_field_acre_path(field_acre) %></td>
+        <td><%= link_to 'Destroy', field_acre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Field acre', new_field_acre_path %>
+<br>
+<br>
+<%= link_to 'Home', root_path %>

@@ -4,6 +4,7 @@ BailCode.delete_all
 FieldType.delete_all
 FieldAcre.delete_all
 Field.delete_all
+Acre.delete_all
 Production.delete_all
 
 
@@ -40,30 +41,41 @@ hg = FieldType.find_by_description('Hay/Graze')
 hay = FieldType.find_by_description('Hay')
 
 FieldAcre.create([
-{ :description => 'North', :abbreviation => 'North', :status => 1, :number_of_acres => 125, :field_type_id => graze.id },
-{ :description => 'South', :abbreviation => 'South', :status => 1, :number_of_acres => 80, :field_type_id => hg.id },
-{ :description => 'Middle', :abbreviation => 'Middle', :status => 1, :number_of_acres => 200, :field_type_id => hg.id },
-{ :description => 'West', :abbreviation => 'West', :status => 1, :number_of_acres => 40, :field_type_id => hay.id },
-{ :description => 'East', :abbreviation => 'East', :status => 1, :number_of_acres => 125, :field_type_id => graze.id },
-{ :description => 'Middle', :abbreviation => 'Middle', :status => 1, :number_of_acres => 100, :field_type_id => hg.id },
-{ :description => 'End', :abbreviation => 'End', :status => 1, :number_of_acres => 80, :field_type_id => hg.id },
-{ :description => 'House', :abbreviation => 'House', :status => 1, :number_of_acres => 15, :field_type_id => hay.id },
+{ :description => 'LR East', :abbreviation => 'LR E', :status => 1, :number_of_acres => 60, :field_type_id => hg.id },
+{ :description => 'LR Middle', :abbreviation => 'LR Mid', :status => 1, :number_of_acres => 80, :field_type_id => hg.id },
+{ :description => 'LR West', :abbreviation => 'LR W', :status => 1, :number_of_acres => 50, :field_type_id => hg.id },
+{ :description => 'HC Neck', :abbreviation => 'HC N', :status => 1, :number_of_acres => 15, :field_type_id => hay.id },
+{ :description => 'M Canal', :abbreviation => 'M C', :status => 1, :number_of_acres => 100, :field_type_id => hg.id },
+{ :description => 'M Montague', :abbreviation => 'M M', :status => 1, :number_of_acres => 75, :field_type_id => hg.id },
+{ :description => 'M Pond', :abbreviation => 'M P', :status => 1, :number_of_acres => 100, :field_type_id => hg.id },
+{ :description => 'C House', :abbreviation => 'C House', :status => 1, :number_of_acres => 45, :field_type_id => hay.id },
+{ :description => 'C Flood 1', :abbreviation => 'C F1', :status => 1, :number_of_acres => 75, :field_type_id => hay.id },
+{ :description => 'C Flood 2', :abbreviation => 'C F2', :status => 1, :number_of_acres => 35, :field_type_id => hay.id },
+{ :description => 'C Flood 3', :abbreviation => 'C F3', :status => 1, :number_of_acres => 30, :field_type_id => hay.id },
+{ :description => 'C Flood Big', :abbreviation => 'C FB', :status => 1, :number_of_acres => 80, :field_type_id => hay.id },
 ])
-
-north = FieldAcre.where(["number_of_acres = ? and description = ?", 125, "North"])
-south = FieldAcre.where(["number_of_acres = ? and description = ?", 80, "South"])
-middle = FieldAcre.where(["number_of_acres = ? and description = ?", 200, "Middle"])
-ends = FieldAcre.where(["number_of_acres = ? and description = ?", 80, "End"])
-house = FieldAcre.where(["number_of_acres = ? and description = ?", 15, "House"])
 
 Field.create([
-{ :description => 'Lower Road', :abbreviation => 'LowRd', :status => 1, :field_acres_id => north.first.id},
-{ :description => 'Lower Road', :abbreviation => 'LowRd', :status => 1, :field_acres_id => south.first.id},
-{ :description => 'Lower Road', :abbreviation => 'LowRd', :status => 1, :field_acres_id => middle.first.id},
-{ :description => 'Neck', :abbreviation => 'Neck', :status => 1, :field_acres_id => ends.first.id},
-{ :description => 'House', :abbreviation => 'House', :status => 1, :field_acres_id => house.first.id}
+{ :description => 'Lower Road', :abbreviation => 'LowRd', :status => 1},
+{ :description => 'Harry Cash', :abbreviation => 'HC', :status => 1},
+{ :description => 'Main Ranch', :abbreviation => 'Main', :status => 1},
+{ :description => 'Crebbian', :abbreviation => 'Creb', :status => 1},
 ])
 
+Acre.create([
+{ :field_id => Field.find_by_description('Lower Road').id, :field_acres_id => FieldAcre.find_by_description('LR East').id },
+{ :field_id => Field.find_by_description('Lower Road').id, :field_acres_id => FieldAcre.find_by_description('LR Middle').id },
+{ :field_id => Field.find_by_description('Lower Road').id, :field_acres_id => FieldAcre.find_by_description('LR West').id },
+{ :field_id => Field.find_by_description('Harry Cash').id, :field_acres_id => FieldAcre.find_by_description('HC Neck').id },
+{ :field_id => Field.find_by_description('Main Ranch').id, :field_acres_id => FieldAcre.find_by_description('M Canal').id },
+{ :field_id => Field.find_by_description('Main Ranch').id, :field_acres_id => FieldAcre.find_by_description('M Montague').id },
+{ :field_id => Field.find_by_description('Main Ranch').id, :field_acres_id => FieldAcre.find_by_description('M Pond').id },
+{ :field_id => Field.find_by_description('Crebbian').id, :field_acres_id => FieldAcre.find_by_description('C House').id },
+{ :field_id => Field.find_by_description('Crebbian').id, :field_acres_id => FieldAcre.find_by_description('C Flood 1').id },
+{ :field_id => Field.find_by_description('Crebbian').id, :field_acres_id => FieldAcre.find_by_description('C Flood 2').id },
+{ :field_id => Field.find_by_description('Crebbian').id, :field_acres_id => FieldAcre.find_by_description('C Flood 3').id },
+{ :field_id => Field.find_by_description('Crebbian').id, :field_acres_id => FieldAcre.find_by_description('C Flood Big').id },
+])
 
 prod1 = Production.new
 prod1.bail_code = BailCode.find_by_description('Three Twine')
@@ -78,7 +90,7 @@ prod2 = Production.new
 prod2.bail_code = BailCode.find_by_description('Three Twine')
 prod2.cutting_code = CuttingCode.find_by_description('First Cutting')
 prod2.hay_type = HayType.find_by_description('Grain')
-prod2.field = Field.find_by_description('Neck')
+prod2.field = Field.find_by_description('Harry Cash')
 prod2.number_of_bales = 150
 prod2.production_at = Time.now
 prod2.save
@@ -87,7 +99,7 @@ prod3 = Production.new
 prod3.bail_code = BailCode.find_by_description('Three Twine')
 prod3.cutting_code = CuttingCode.find_by_description('First Cutting')
 prod3.hay_type = HayType.find_by_description('Grain')
-prod3.field = Field.find_by_description('Neck')
+prod3.field = Field.find_by_description('Main Ranch')
 prod3.number_of_bales = 500
 prod3.production_at = Time.now
 prod3.save

@@ -1,0 +1,39 @@
+<%= form_for(@field_acre) do |f| %>
+  <% if @field_acre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@field_acre.errors.count, "error") %> prohibited this field_acre from being saved:</h2>
+
+      <ul>
+      <% @field_acre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :abbreviation %><br>
+    <%= f.text_field :abbreviation %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_acres %><br>
+    <%= f.text_field :number_of_acres %>
+  </div>
+  <div class="field">
+    <%= f.label :field_type_id %><br>
+    <%= collection_select(:field_acre, :field_type_id, FieldType.all, :id, :description) %>
+  </div>
+  <br>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

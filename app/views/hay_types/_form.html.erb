@@ -1,0 +1,29 @@
+<%= form_for(@hay_type) do |f| %>
+  <% if @hay_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hay_type.errors.count, "error") %> prohibited this hay_type from being saved:</h2>
+
+      <ul>
+      <% @hay_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :abbreviation %><br>
+    <%= f.text_field :abbreviation %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

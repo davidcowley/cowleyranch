@@ -1,0 +1,2 @@
+module CuttingCodesHelper
+end

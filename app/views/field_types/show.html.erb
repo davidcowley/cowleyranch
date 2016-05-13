@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @field_type.description %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @field_type.abbreviation %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @field_type.status %>
+</p>
+
+<%= link_to 'Edit', edit_field_type_path(@field_type) %> |
+<%= link_to 'Back', field_types_path %>
+<br>
+<br>
+<%= link_to 'Home', root_path %>

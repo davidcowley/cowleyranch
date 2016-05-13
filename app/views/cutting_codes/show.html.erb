@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description,:</strong>
+  <%= @cutting_code.description %>
+</p>
+
+<p>
+  <strong>Abbreviation,:</strong>
+  <%= @cutting_code.abbreviation %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @cutting_code.status %>
+</p>
+
+<%= link_to 'Edit', edit_cutting_code_path(@cutting_code) %> |
+<%= link_to 'Back', cutting_codes_path %>
+<br>
+<br>
+<%= link_to 'Home', root_path %>

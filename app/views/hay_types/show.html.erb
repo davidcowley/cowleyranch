@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @hay_type.description %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @hay_type.abbreviation %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @hay_type.status %>
+</p>
+
+<%= link_to 'Edit', edit_hay_type_path(@hay_type) %> |
+<%= link_to 'Back', hay_types_path %>
+<br>
+<br>
+<%= link_to 'Home', root_path %>

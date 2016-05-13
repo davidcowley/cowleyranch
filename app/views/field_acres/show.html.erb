@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @field_acre.description %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @field_acre.abbreviation %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @field_acre.status %>
+</p>
+
+<p>
+  <strong>Number of acres:</strong>
+  <%= @field_acre.number_of_acres %>
+</p>
+
+<p>
+  <strong>Field type.description:</strong>
+  <%= @field_acre.field_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_field_acre_path(@field_acre) %> |
+<%= link_to 'Back', field_acres_path %>
+<br>
+<br>
+<%= link_to 'Home', root_path %>
