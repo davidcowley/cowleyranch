@@ -3,17 +3,39 @@
 <p>
   <strong>Description:</strong>
   <%= @field.description %>
+  <strong>Total Acres:</strong>
+  <%= @field.total_acres %>
+
 </p>
 
-<p>
-  <strong>Abbreviation:</strong>
-  <%= @field.abbreviation %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Abbreviation</th>
+      <th>Status</th>
+      <th>Number of acres</th>
+      <th>Field type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Status:</strong>
-  <%= @field.status %>
-</p>
+  <tbody>
+    <% @field.field_acres.each do |field_acre| %>
+      <tr>
+        <td><%= field_acre.description %></td>
+        <td><%= field_acre.abbreviation %></td>
+        <td><%= field_acre.status %></td>
+        <td><%= field_acre.number_of_acres %></td>
+        <td><%= field_acre.field_type.description %></td>
+        <td><%= link_to 'Show', [@field, field_acre] %></td>
+        <td><%= link_to 'Destroy', [@field, field_acre], method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Field Acre', new_field_field_acre_path(@field) %> 
+<br>
 
 <%= link_to 'Edit', edit_field_path(@field) %> |
 <%= link_to 'Back', fields_path %>

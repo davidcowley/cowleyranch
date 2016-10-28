@@ -30,4 +30,6 @@ group :production do
   gem 'puma'
 end
 
-ruby "2.2.0"
+#ruby "2.2.0"
+
+gem 'table_print'

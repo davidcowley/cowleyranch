@@ -1,0 +1,41 @@
+<%= form_for(@production) do |f| %>
+  <% if @production.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@production.errors.count, "error") %> prohibited this production from being saved:</h2>
+
+      <ul>
+      <% @production.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bail_code_id %><br>
+    <%= collection_select(:production, :bail_code_id, BailCode.all, :id, :description) %>
+  </div>
+ <div class="field">
+    <%= f.label :cutting_code_id %><br>
+    <%= collection_select(:production, :cutting_code_id, CuttingCode.all, :id, :description) %>
+  </div>
+  <div class="field">
+    <%= f.label :hay_type_id %><br>
+    <%= collection_select(:production, :hay_type_id, HayType.all, :id, :description) %>
+  </div>
+  <div class="field">
+    <%= f.label :field_id %><br>
+    <%= collection_select(:production, :field_id, Field.all, :id, :description) %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_bales %><br>
+    <%= f.text_field :number_of_bales %>
+  </div>
+  <div class="field">
+    <%= f.label :production_at %><br>
+    <%= f.text_field :production_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

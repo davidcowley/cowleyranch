@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :field_types
   resources :hay_types
   resources :field_acres
-  resources :fields
+  resources :productions
+
+  resources :fields do
+    resources :field_acres, only: [:show, :new, :edit, :create, :destroy, :update]
+  end
 
 end

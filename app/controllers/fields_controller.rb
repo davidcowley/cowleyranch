@@ -68,6 +68,7 @@ class FieldsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_field
       @field = Field.find(params[:id])
+      @field.total_acres = @field.field_acres.sum(:number_of_acres)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

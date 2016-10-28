@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bail code.description:</strong>
+  <%= @production.bail_code.description %>
+</p>
+
+<p>
+  <strong>Cutting code.description:</strong>
+  <%= @production.cutting_code.description %>
+</p>
+
+<p>
+  <strong>Hay type.description:</strong>
+  <%= @production.hay_type.description %>
+</p>
+
+<p>
+  <strong>Field.description:</strong>
+  <%= @production.field.description %>
+</p>
+
+<p>
+  <strong>Number of bales:</strong>
+  <%= @production.number_of_bales %>
+</p>
+
+<p>
+  <strong>Production at:</strong>
+  <%= @production.production_at %>
+</p>
+
+<%= link_to 'Edit', edit_production_path(@production) %> |
+<%= link_to 'Back', productions_path %>
+<br>
+<br>
+<%= link_to 'Home', root_path %>

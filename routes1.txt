@@ -1,0 +1,52 @@
+               Prefix Verb   URI Pattern                                      Controller#Action
+                 root GET    /                                                static_pages#home
+    static_pages_home GET    /static_pages/home(.:format)                     static_pages#home
+    static_pages_help GET    /static_pages/help(.:format)                     static_pages#help
+   static_pages_about GET    /static_pages/about(.:format)                    static_pages#about
+           bail_codes GET    /bail_codes(.:format)                            bail_codes#index
+                      POST   /bail_codes(.:format)                            bail_codes#create
+        new_bail_code GET    /bail_codes/new(.:format)                        bail_codes#new
+       edit_bail_code GET    /bail_codes/:id/edit(.:format)                   bail_codes#edit
+            bail_code GET    /bail_codes/:id(.:format)                        bail_codes#show
+                      PATCH  /bail_codes/:id(.:format)                        bail_codes#update
+                      PUT    /bail_codes/:id(.:format)                        bail_codes#update
+                      DELETE /bail_codes/:id(.:format)                        bail_codes#destroy
+        cutting_codes GET    /cutting_codes(.:format)                         cutting_codes#index
+                      POST   /cutting_codes(.:format)                         cutting_codes#create
+     new_cutting_code GET    /cutting_codes/new(.:format)                     cutting_codes#new
+    edit_cutting_code GET    /cutting_codes/:id/edit(.:format)                cutting_codes#edit
+         cutting_code GET    /cutting_codes/:id(.:format)                     cutting_codes#show
+                      PATCH  /cutting_codes/:id(.:format)                     cutting_codes#update
+                      PUT    /cutting_codes/:id(.:format)                     cutting_codes#update
+                      DELETE /cutting_codes/:id(.:format)                     cutting_codes#destroy
+          field_types GET    /field_types(.:format)                           field_types#index
+                      POST   /field_types(.:format)                           field_types#create
+       new_field_type GET    /field_types/new(.:format)                       field_types#new
+      edit_field_type GET    /field_types/:id/edit(.:format)                  field_types#edit
+           field_type GET    /field_types/:id(.:format)                       field_types#show
+                      PATCH  /field_types/:id(.:format)                       field_types#update
+                      PUT    /field_types/:id(.:format)                       field_types#update
+                      DELETE /field_types/:id(.:format)                       field_types#destroy
+            hay_types GET    /hay_types(.:format)                             hay_types#index
+                      POST   /hay_types(.:format)                             hay_types#create
+         new_hay_type GET    /hay_types/new(.:format)                         hay_types#new
+        edit_hay_type GET    /hay_types/:id/edit(.:format)                    hay_types#edit
+             hay_type GET    /hay_types/:id(.:format)                         hay_types#show
+                      PATCH  /hay_types/:id(.:format)                         hay_types#update
+                      PUT    /hay_types/:id(.:format)                         hay_types#update
+                      DELETE /hay_types/:id(.:format)                         hay_types#destroy
+    field_field_acres POST   /fields/:field_id/field_acres(.:format)          field_acres#create
+ new_field_field_acre GET    /fields/:field_id/field_acres/new(.:format)      field_acres#new
+edit_field_field_acre GET    /fields/:field_id/field_acres/:id/edit(.:format) field_acres#edit
+     field_field_acre GET    /fields/:field_id/field_acres/:id(.:format)      field_acres#show
+                      PATCH  /fields/:field_id/field_acres/:id(.:format)      field_acres#update
+                      PUT    /fields/:field_id/field_acres/:id(.:format)      field_acres#update
+                      DELETE /fields/:field_id/field_acres/:id(.:format)      field_acres#destroy
+               fields GET    /fields(.:format)                                fields#index
+                      POST   /fields(.:format)                                fields#create
+            new_field GET    /fields/new(.:format)                            fields#new
+           edit_field GET    /fields/:id/edit(.:format)                       fields#edit
+                field GET    /fields/:id(.:format)                            fields#show
+                      PATCH  /fields/:id(.:format)                            fields#update
+                      PUT    /fields/:id(.:format)                            fields#update
+                      DELETE /fields/:id(.:format)                            fields#destroy
