@@ -13,6 +13,9 @@ gem 'sdoc',         '0.4.0', group: :doc
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'rack-cors', require: 'rack/cors'
+gem 'rails_api_auth'
+
 group :development, :test do
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.3.0'
